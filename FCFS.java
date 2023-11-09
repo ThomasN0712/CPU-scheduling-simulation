@@ -13,13 +13,11 @@ public class FCFS implements Algorithm
     }
     
     public void schedule() {
-        System.out.println("FCFS Scheduling\n");
+        System.out.println("-------------------FCFS Scheduling---------------------\n");
         
-        while (!queue.isEmpty()) {
+        while (queue.isEmpty() == false) {
             Task task = pickNextTask();
-            
-            System.out.println("Running task: " + task.getName());   
-            
+                        
             CPU.run(task, task.getBurst());
 
             System.out.println("Task finished: " + task.getName() + "\n");

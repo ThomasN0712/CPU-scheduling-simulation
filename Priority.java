@@ -4,22 +4,39 @@
  
 import java.util.*;
 
-public class Priority
+public class Priority implements Algorithm
 {
     private List<Task> queue;
     
     public Priority(List<Task> queue) {
         this.queue = queue;
+
+        // Create a empty sorted queue
+        List<Task> sortedQueue = new ArrayList<Task>();
+
+        // Sort the queue by priority
+        while (!queue.isEmpty()) {
+            Task lowestPri = queue.get(0);
+            for (Task task : queue) {
+                if (task.getPriority() < lowestPri.getPriority()) {
+                    lowestPri = task;
+                }
+            }
+            // Add the lowest priority task to the sorted queue and remove it from queue
+            sortedQueue.add(lowestPri);
+            queue.remove(lowestPri);
+        }
+
+        // Set the queue to the sorted queue
+        this.queue = sortedQueue;
     }
     
     public void schedule() {
-        System.out.println("Priority Scheduling\n");
+        System.out.println("-------------------Priority Scheduling---------------------\n");
         
-        while (!queue.isEmpty()) {
+        while (queue.isEmpty() == false) {
             Task task = pickNextTask();
-            
-            System.out.println("Running task: " + task.getName());   
-            
+
             CPU.run(task, task.getBurst());
 
             System.out.println("Task finished: " + task.getName() + "\n");

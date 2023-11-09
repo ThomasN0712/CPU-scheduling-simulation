@@ -42,15 +42,15 @@ public class Driver
         
         Algorithm scheduler = null;
         // String choice = args[0].toUpperCase();
-        String choice = "FCFS";
+        String choice = "PRI";
 
         switch(choice) {
             case "FCFS":
                 scheduler = new FCFS(queue);
                 break;
-            // case "PRI":
-            //     scheduler = new Priority(queue);
-            //     break;
+            case "PRI":
+                scheduler = new Priority(queue);
+                break;
             // case "RR":
             //     scheduler = new RR(queue);
             //     break;
