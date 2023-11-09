@@ -19,12 +19,13 @@ import java.io.*;
 public class Driver
 {
     public static void main(String[] args) throws IOException {
-        if (args.length != 2) {
-            System.err.println("Usage: java Driver <algorithm> <schedule>");
-            System.exit(0);
-        }
+        // if (args.length != 2) {
+        //     System.err.println("Usage: java Driver <algorithm> <schedule>");
+        //     System.exit(0);
+        // }
 
-        BufferedReader inFile = new BufferedReader(new FileReader(args[1]));
+        // BufferedReader inFile = new BufferedReader(new FileReader(args[1]));
+        BufferedReader inFile = new BufferedReader(new FileReader("schedule.txt"));
 
         String schedule;
 
@@ -40,24 +41,19 @@ public class Driver
         inFile.close();
         
         Algorithm scheduler = null;
-        String choice = args[0].toUpperCase();
+        // String choice = args[0].toUpperCase();
+        String choice = "FCFS";
 
         switch(choice) {
             case "FCFS":
                 scheduler = new FCFS(queue);
                 break;
-            case "SJF":
-                scheduler = new SJF(queue);
-                break;
-            case "PRI":
-                scheduler = new Priority(queue);
-                break;
-            case "RR":
-                scheduler = new RR(queue);
-                break;
-            case "PRI-RR":
-                scheduler = new PriorityRR(queue);
-                break;
+            // case "PRI":
+            //     scheduler = new Priority(queue);
+            //     break;
+            // case "RR":
+            //     scheduler = new RR(queue);
+            //     break;
             default:
                 System.err.println("Invalid algorithm");
                 System.exit(0);

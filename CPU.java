@@ -5,7 +5,7 @@
  *
  * @author Greg Gagne - March 2016
  */
- 
+
 public class CPU
 {
     /**
