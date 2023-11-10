@@ -6,7 +6,7 @@
  * 
  * Usage:
  *  
- *  java Driver <schedule> <algorithm>
+ *  java Driver <algorithm> <schedule>
  *
  * where 
  *  schedule is schedule of tasks
