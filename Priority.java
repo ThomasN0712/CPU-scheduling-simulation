@@ -16,15 +16,15 @@ public class Priority implements Algorithm
 
         // Sort the queue by priority
         while (!queue.isEmpty()) {
-            Task lowestPri = queue.get(0);
+            Task highestPri = queue.get(0);
             for (Task task : queue) {
-                if (task.getPriority() < lowestPri.getPriority()) {
-                    lowestPri = task;
+                if (task.getPriority() > highestPri.getPriority()) {
+                    highestPri = task;
                 }
             }
             // Add the lowest priority task to the sorted queue and remove it from queue
-            sortedQueue.add(lowestPri);
-            queue.remove(lowestPri);
+            sortedQueue.add(highestPri);
+            queue.remove(highestPri);
         }
 
         // Set the queue to the sorted queue
