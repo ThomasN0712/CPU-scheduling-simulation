@@ -15,3 +15,6 @@ This Package contains the java implementation of FCFS, Priority, and Round Robin
    ```
    java Driver RR rr-schedule.txt
    ```
+
+### video link
+https://youtu.be/RRNL859isK8
